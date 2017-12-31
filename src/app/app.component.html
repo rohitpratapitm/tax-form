@@ -1,20 +1,239 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="myForm">
+    <div class="row header-block text-center">
+        <span style="color: orange">MAXTAX RETURN</span>
+        <span style="color: white"> SUMMARY</span>
+      </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <form name="formcontrol" role="form" #taxForm="ngForm">
+          <div class="row">
+            <div class="col-sm-1 col-md-1">
+              <label>TAX YEAR</label>
+            </div>
+            <div class="col-sm-5 col-md-5">
+              <input type="text" #year value="2017" readonly/>
+            </div>
+            <div class="col-sm-1 col-md-1">
+              <label>CONSULTANT:</label>
+            </div>
+            <div class="col-sm-5 col-md-5">
+              <input type="text" value="NICOLE KENNEDY" readonly/>
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="row">
+            <div class="col-md-12">
+              Thank you for allowing MAXTAX the opportunity to service your 2015 tax needs. Our team of tax professionals has finalized
+              your tax return based on your consultation, profile information and tax documents provided. Please review your
+              summary and electronically sign below to give us permission to E-File your federal and state tax return(s). Please
+              let us know if we can assist you in any way.
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label>Primary Tax Payer Name</label>
+              </div>
+              <div>
+                <input class="form-control" #name type="text" (blur)="setName(name.value)"/>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div>
+                <label>SSN</label>
+              </div>
+              <div>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div>
+                <label>DOB</label>
+              </div>
+              <div>
+                <input class="form-control" type="date" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label>Phone</label>
+              </div>
+              <div>
+                <input class="form-control" type="tel" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label>Email</label>
+              </div>
+              <div>
+                <input class="form-control" type="email" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label>Address</label>
+              </div>
+              <div>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                  <label>City</label>
+                </div>
+                <div>
+                  <input class="form-control" type="text" />
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <div>
+                <label>State</label>
+              </div>
+              <div>
+                <app-states></app-states>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div>
+                <label>Zip Code</label>
+              </div>
+              <div>
+                <input class="form-control" type="text" pattern="[0-9]{5}" title="Five digit zip code" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div>
+                <label>Filling Status</label>
+              </div>
+              <div>
+                <app-filing-status></app-filing-status>
+              </div>
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="row">
+            <div class="col-md-6">
+              <label>STANDARD RETURN RESULTS</label>
+            </div>
+            <div class="col-md-4">
+              <label>BUSINESS STRATEGY RESULTS</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Federal Refund Amount</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+            <div class="col-md-4">
+              <label>Federal Refund Amount</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label>State Refund Amount</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+            <div class="col-md-4">
+              <label>State Refund Amount</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Fees</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+            <div class="col-md-4">
+              <label>Fees</label>
+            </div>
+            <div class="col-md-2">
+              <input class="form-control" type="text" />
+            </div>
+          </div>
+          <hr class="shade">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Notes</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" type="text" />
+            </div>
+          </div>
+          <br/><br/>
+          <div class="row-fluid">
+              <span style="font-size: 10px"><strong>
+                  Terms of Service <br/>
+                  By Electronically signing this summary, I declare that I have verified my income statements, related tax information, consultation results and tax return results for the tax
+                  year ending December 31, 2014, and any other year in which my tax returns were processed; and to the best of my knowledge and belief, it is true, correct, and complete.
+                  I further declare that the amounts above are the amounts from my electronic income tax return, using the information I submitted to MAXTAXLLC, its affiliates, contract
+                  workers, employees and affiliates for processing. I also understand that the burden of proof of things stated on my tax return, tax information, verbal statements, and
+                  electronically submitted statements, in any case is my responsibility to any parties asking to verify my information. I waive my rights to engage, initiate or purse any legal
+                  action against, towards or about to MAX TAX, LLC, its affiliates, employees, contract workers, and the such. MAX TAX LLC is a tax consulting company that provides tax
+                  advice to taxpayers, and is in no way liable for any penalties, miscalculations, errors in processing, MAX TAX LLC acts as each client's Electronic Return Originator, and will
+                  not be held responsible for any legal actions toward a client by any party whatsoever. By signing this agreement you are declaring: I consent to allow my intermediate
+                  service provider, transmitter, or electronic return originator (ERO) to send my return to the IRS and to receive from the IRS (a) an acknowledgement of receipt or reason
+                  for rejection of the transmission, (b) the reason for any delay in processing the return or refund, and (c) the date of any refund. If applicable, I authorize the U.S. Treasury
+                  and its designated Financial Agent to initiate an ACH electronic funds withdrawal (direct debit) entry to the financial institution account indicated in the tax preparation
+                  software for payment of my federal taxes owed on this return and/or a payment of estimated tax, and the financial institution to debit the entry to this account. This
+                  authorization is to remain in full force and effect until I notify the U.S. Treasury Financial Agent to terminate the authorization. To revoke (cancel) a payment, I must
+                  contact the U.S. Treasury Financial Agent at 1-888-353-4537. Payment cancellation requests must be received no later than 2 business days prior to the payment
+                  (settlement) date. I also authorize the financial institutions involved in the processing of the electronic payment of taxes to receive confidential information necessary to
+                  answer inquiries and resolve issues related to the payment. I further acknowledge that the personal identification number (PIN) is my signature for my electronic income
+                  tax return and, if applicable, my Electronic Funds Withdrawal Consent. I agree that my tax return may be signed as "self-prepared" if I am an internet client, if I have not
+                  come into the MAX TAX office for services, or I have not provided MAX TAX LLC, its contract workers, employees, affiliates and the such with proof of expenses, deductions
+                  and income as being a bonafide truth, which will include bank statements, receipts, and any proof of what I want to claim on my tax return; in which my identity is not
+                  able to be verified. I agree that if my return is signed as "self-prepared" MAX TAX, LLC is solely acting as my Electronic Return Originator." I agree to allow MAX TAX, LLC to
+                  act as my third party designee. I agree to maintain accurate records, receipts and logs of all of my tax information, expenses and forms, if proof of documentation were
+                  ever needed. If in case of an audit, MAX TAX, LLC is not responsible or bound to representing me or my tax return in a court of law, or any other party. To ensure proof of
+                  delivery, MAXTAX, LLC will upload your completed Form 1040 and appropriate state tax returns after signing this summary, your return is accepted, and payment of your
+                  service fees has been completed. We appreciate the opportunity to serve you. After we receive this electronically signed tax return summary, your tax return will be
+                  submitted to the IRS and local governments. Please allow 7-21 business days to receive a refund if you are expecting one. If you owe taxes, you will need to pay your
+                  processing fees prior to our electronically submitting your tax return to the IRS and respective state agencies. If in any instance your refund is garnished by an unpaid past
+                  due obligation of a federal, state, local or any other party, and we do not receive your fee payments, we must receive your full payment of your fees prior to uploading or
+                  transmitting your full 1040 tax return onto your MAX TAX web site profile. If you have a balance due of a previous year's service fees, by signing this agreement, you agree
+                  to allow MAX TAX, LLC the right to deduct your past due service fees from your current year tax refund, in addition to the current year service fees. Service fees are
+                  consulting, tax preparation, and tax return amendment fees, but is not limited to the listed services. We honor and respect your privacy and MAX TAX, LLC will never
+                  disclose your personal, or financial information to any third party entities. Please see our full privacy policy on our web site,
+                </strong>
+              </span>
+            </div>
+            <hr class="hr">
+            <div class="row">
+              <div class="col-md-6">
+                <label>E-SIGNATURE</label>
+              </div>
+              <div class="col-md-6">
+                <label>DATE</label>
+              </div>
+            </div>
+            <hr class="hr">
+        </form>
+      </div>
+    </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div class="row-fluid" style="text-align:center">
+    <button (click)="pdf()">Generate Pdf</button>
+</div>
